@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <title>Login Page</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/login.css">
+    <script src="../static/js/script.js"></script>
+</head>
+<body>
+<div class="notification-content" id="successNote"></div>
+<div class="inFormBackground">
+    <div class="inLoginForm">
+        <form id="form" method="post" name="myform" action="{{ url_for('login')}}">
+            <div class="title">
+                <h2>Login</h2><br/>
+            </div>
+            <div class="notification-container">
+                <!-- Display error message using "notification" class -->
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                {% for message in messages %}
+                <div class="notification">
+                    {{ message[1] }}.
+                </div>
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
+                <!-- Display success message using "success-notification" class -->
+                {% with messages = get_flashed_messages(category_filter='success') %}
+                {% if messages %}
+                {% for message in messages %}
+                <div class="success-notification">
+                    {{ message[1] }}
+                </div>
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
+            </div>
+            <div class="inputGroup">
+                <label for="username"><i class="fas fa-user"></i> User Name</label>
+                <input class="placeHolder" name="username" type="text" autocomplete="off" placeholder="Username"
+                       required>
+            </div>
+            <div class="inputGroup">
+                <label for="password"><i class="fas fa-lock"></i> Password</label>
+                <div class="password-container">
+                    <input class="placeHolder" id="password" name="password" type="password" autocomplete="off"
+                           placeholder="Password" required>
+                    <i class="far fa-eye" id="togglePassword"></i>
+                </div>
+            </div>
+            <br/>
+            <button class="submitForm" type="submit">Login</button>
+            <br/><br/>
+            <button class="submitForm" type="button" onclick="window.location='{{ url_for('register')}}';">Don't have an
+                account? Sign
+                Up
+            </button>
+            <br/><br/>
+            <div class="social">
+                <div class="go"><a href="https://accounts.google.com/Login" target="_blank"><i
+                        class="fab fa-google"></i></a></div>
+                <div class="fb"><a href="https://www.facebook.com/login.php" target="_blank"><i
+                        class="fab fa-facebook"></i></a></div>
+                <div class="tw"><a href="https://www.twitter.com/login" target="_blank"><i
+                        class="fab fa-twitter"></i></a></div>
+            </div>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

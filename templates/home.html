@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <title>Home</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/home.css">
+    <script src="../static/js/script.js"></script>
+</head>
+<body>
+<div class="notification-content" id="successNote"></div>
+<div class="inFormBackground">
+    <div class="inLoginForm">
+        <form onsubmit="return false">
+            <div class="title">
+                <h2>Welcome to</h2><br/>
+                <h2>Dream Housing</h2><br/> <h2>Finance</h2><br/></br>
+            </div>
+            <h2>Please login to check loan eligibility.</h2><br/>
+            <button class="submitForm" onclick="window.location='{{ url_for('login')}}';">Login Now</button>
+            <br/><br/>
+            <button class="submitForm" onclick="window.location='{{ url_for('register')}}';">Register Now</button>
+            <br/><br/>
+            <div class="social">
+                <div class="go"><a href="https://accounts.google.com/Login" target="_blank"><i
+                        class="fab fa-google"></i></a></div>
+                <div class="fb"><a href="https://www.facebook.com/login.php" target="_blank"><i
+                        class="fab fa-facebook"></i></a></div>
+                <div class="tw"><a href="https://www.twitter.com/login" target="_blank"><i
+                        class="fab fa-twitter"></i></a></div>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

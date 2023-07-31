@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Prediction</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/predict.css">
+    <script src="../static/js/script.js"></script>
+</head>
+
+<body>
+<div class="notification-content" id="successNote"></div>
+<div class="inFormBackground">
+    <div class="inForm">
+        <div id="form_container">
+            <form class="form" method="POST" action="{{ url_for('predict')}}">
+                <div class="title">
+                    <header>
+                        <h1>House Loan Eligibility Prediction</h1>
+                    </header
+                </div>
+                <div class="predict-container">
+                    {% if output is not none %}
+                    {% if output >= 0.5 %}
+                    <h3 class="eligible">Congrats..!! You are eligible for the loan.</h3>
+                    {% else %}
+                    <h3 class="not-eligible">Sorry, you are not eligible for the loan.</h3>
+                    {% endif %}
+                    {% endif %}
+                </div>
+                <br/>
+                <h2>Please enter the details to check your house loan eligibility.</h2>
+                <div class="form-columns-container">
+                    <div class="form-column">
+                        <div class="inputGroup">
+                            <label for="gender"><p>Gender</p></label>
+                            <select class="placeHolder" name="Gender" id="gender" required="required">
+                                <option value="1">Male</option>
+                                <option value="0">Female</option>
+                            </select>
+                        </div>
+                        <div class="inputGroup">
+                            <label for="married"><p>Married</p></label>
+                            <select class="placeHolder" name="Married" id="married" required="required">
+                                <option value="0">No</option>
+                                <option value="1">Yes</option>
+                            </select>
+                        </div>
+                        <div class="inputGroup">
+                            <label for="dependents"><p>Dependents</p></label>
+                            <input class="placeHolder" placeholder="Dependents" type="text" autocomplete="off"
+                                   name="Dependents"
+                                   required="required" value="0">
+                        </div>
+                        <div class="inputGroup">
+                            <label for="education"><p>Education</p></label>
+                            <select class="placeHolder" name="Education" id="education" required="required">
+                                <option value="0">Graduate</option>
+                                <option value="1">Not Graduate</option>
+                            </select>
+                        </div>
+                        <div class="inputGroup">
+                            <label for="self_employed"><p>Self Employed</p></label>
+                            <select class="placeHolder" name="Self_employed" id="self_employed"
+                                    required="required">
+                                <option value="0">No</option>
+                                <option value="1">Yes</option>
+                            </select>
+                        </div>
+                        <button class="submitForm" type="submit">Check Eligibility</button>
+                    </div>
+                    <div class="form-column">
+                        <div class="inputGroup">
+                            <label for="applicant_income"><p>Applicant Income ($)</p></label>
+                            <input class="placeHolder" placeholder="Applicant Income" type="text"
+                                   name="Applicant_Income" autocomplete="off"
+                                   required="required" value="0">
+                        </div>
+                        <div class="inputGroup">
+                            <label for="loan_amount"><p>Loan Amount ($)</p></label>
+                            <input class="placeHolder" placeholder="Loan Amount in Thousands" type="text"
+                                   name="Loan_Amount" autocomplete="off"
+                                   required="required" value="0">
+                        </div>
+                        <div class="inputGroup">
+                            <label for="loan_amount_term"><p>Loan Amount Term (in months)</p></label>
+                            <input class="placeHolder" placeholder="Loan Amount Term" type="text"
+                                   name="Loan_Amount_Term" autocomplete="off"
+                                   required="required" value="0">
+                        </div>
+                        <div class="inputGroup">
+                            <label for="credit_history"><p>Credit History</p></label>
+                            <select class="placeHolder" name="Credit_History" id="credit_history"
+                                    required="required">
+                                <option value="0">No</option>
+                                <option value="1">Yes</option>
+                            </select>
+                        </div>
+                        <div class="inputGroup">
+                            <label for="property_area"><p>Property Area</p></label>
+                            <select class="placeHolder" name="Property_Area" id="property_area"
+                                    required="required">
+                                <option value="0">Rural</option>
+                                <option value="1">Semiurban</option>
+                                <option value="2">Urban</option>
+                            </select>
+                        </div>
+                        <button class="submitForm button" type="button"
+                                onclick="window.location='{{ url_for('logout')}}';">
+                            Press here to Logout
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <br/><br/>
+    </div>
+</div>
+<script src="../static/js/scripts.js"></script>
+</body>
+
+</html>

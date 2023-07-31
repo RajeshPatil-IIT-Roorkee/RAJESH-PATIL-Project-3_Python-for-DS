@@ -1,0 +1,218 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  height: 100vh;
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+  background-color: #141225;
+}
+.inFormBackground {
+  margin: 0rem 2rem;
+}
+.inFormBackground,
+.inLoginForm {
+  width: 35rem;
+  height: 40rem;
+  max-width: 500px;
+  position: relative;
+}
+
+.inLoginForm form {
+  top: 50%;
+  left: 50%;
+  width: 35rem;
+  height: 40rem;
+  max-width: 500px;
+  position: relative;
+  padding: 50px 35px;
+  border-radius: 10px;
+  backdrop-filter: blur(5px);
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.13);
+}
+form * {
+  border: none;
+  outline: none;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+  font-family: Helvetica, "Poppins", sans-serif;
+}
+.title {
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 25px;
+  text-align: center;
+  line-spacing: 10px
+}
+.inputGroup {
+  position: relative;
+}
+.inputGroup label {
+  display: block;
+  margin-top: 30px;
+  font-size: 16px;
+  font-weight: 500;
+  padding-left: 10px;
+}
+
+.inputGroup input {
+  width: 96%;
+  height: 50px;
+  display: block;
+  padding: 0 10px;
+  margin-top: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 50px;
+  background-color: rgba(255, 255, 255, 0.07);
+  padding-left: 20px;
+}
+::placeholder {
+  color: #e5e5e5;
+}
+.placeHolder:hover {
+  box-shadow: 0 0 20px rgba(8, 7, 16, 0.6);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.submitForm {
+  width: 100%;
+  z-index: 1;
+  margin-top: 30px;
+  color: #fff;
+  padding: 15px 0;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 50px;
+  position: relative;
+  background: linear-gradient(164deg, #144e7cfc, #1877f2);
+}
+.submitForm::before {
+  content: "";
+  top: 0%;
+  left: -100%;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  border-radius: 50px;
+  position: absolute;
+  transition: left 0.4s, color 0.4s;
+  background-color: #c302b5;
+}
+.submitForm:hover {
+  color: #080710;
+}
+.submitForm:hover::before {
+  left: 0%;
+}
+.social {
+  display: flex;
+  margin-top: 20px;
+  align-items: center;
+  justify-content: center;
+}
+.social div {
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  cursor: pointer;
+  color: #eaf0fb;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.27);
+}
+.social div:hover {
+  background-color: rgba(255, 255, 255, 0.47);
+}
+.social .fb {
+  margin-left: 25px;
+}
+.social .tw {
+  margin-left: 25px;
+}
+
+.notification-content {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ffffff;
+  position: absolute;
+  pointer-events: none;
+  animation: floatName 6s ease-in-out infinite;
+}
+
+@keyframes floatName {
+  0%, 100% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-20px);
+  }
+}
+
+.notification-container {
+  position: relative;
+  min-height: 40px;
+}
+.notification {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 96%;
+  text-align: center;
+  background-color: #cc0000;
+  color: #FFFFFF;
+  padding: 10px;
+  border-radius: 10px;
+}
+.success-notification {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 96%;
+  text-align: center;
+  background-color: #88FF88;
+  color: #000000;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.form-row {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.form-column {
+    flex-basis: calc(50% - 10px);
+    margin-right: 10px;
+}
+
+.inputGroup.password-input {
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.07);
+}
+
+.password-container .fa-eye {
+  position: absolute;
+  right: 5px;
+  top: 70%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #888;
+}
+
+.password-container .fa-eye-slash {
+  color: #555;
+}
